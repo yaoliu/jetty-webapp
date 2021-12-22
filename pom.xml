@@ -26,13 +26,13 @@
         <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
         <maven.war.plugin.version>3.3.2</maven.war.plugin.version>
         <servlet.api.version>4.0.4</servlet.api.version>
-        <jetty.maven.version>9.4.24.v20191120</jetty.maven.version>
+        <jetty.maven.version>9.4.8.v20171121</jetty.maven.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
-            <version>9.4.24.v20191120</version>
+            <version>9.4.8.v20171121</version>
         </dependency>
         <dependency>
             <groupId>jakarta.servlet</groupId>
@@ -114,11 +114,6 @@
                     <artifactId>maven-war-plugin</artifactId>
                     <version>${maven.war.plugin.version}</version>
                 </plugin>
-                <!--                <plugin>-->
-                <!--                    <groupId>com.mycila</groupId>-->
-                <!--                    <artifactId>license-maven-plugin</artifactId>-->
-                <!--                    <version>${license.plugin.version}</version>-->
-                <!--                </plugin>-->
             </plugins>
         </pluginManagement>
         <plugins>
@@ -126,6 +121,13 @@
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>${jetty.maven.version}</version>
+                <configuration>
+                    <jettyXml>src/main/resources/jetty.xml,src/main/resources/jetty-http.xml</jettyXml>
+                    <!--                    <httpConnector>-->
+                    <!--                        &lt;!&ndash;                        <port>8080</port>&ndash;&gt;-->
+                    <!--                        &lt;!&ndash;                        <host>localhost</host>&ndash;&gt;-->
+                    <!--                    </httpConnector>-->
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
